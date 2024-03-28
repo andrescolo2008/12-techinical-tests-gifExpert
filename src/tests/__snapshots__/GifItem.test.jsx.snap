@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pruebas en < GifItem> validar las props 1`] = `
+<div>
+  <div>
+    <img
+      alt="title"
+      src="https:123.com"
+    />
+    <p>
+      manzana
+    </p>
+  </div>
+</div>
+`;
