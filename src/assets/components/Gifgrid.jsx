@@ -2,12 +2,20 @@
 import { GifItem } from "./GifItem"
 import { useFetchGif } from "../../hooks/useFetchGif"
 
+import PropTypes from 'prop-types'
 
-export const Gifgrid = ({category,number}) => {
 
-   const {isLoading,images } =useFetchGif(category,number)
+export const Gifgrid = ({category='saitama',number=3}) => {
 
-   console.log({images,isLoading,number});
+   const {isLoading,images ,setImages} =useFetchGif(category,number)
+  
+   const handleClearImages = () => {
+      // Limpia el estado de las imágenes
+      setImages([]);
+    };
+  
+
+   // console.log({images,isLoading,number});
    
 
    //  const [images, setImages] = useState([])
@@ -23,13 +31,13 @@ export const Gifgrid = ({category,number}) => {
    //     getImages()
       
    //  }, [])
-    
-  
   
     return (
             <>
             <h3>{category}</h3>
             <h3>{number}</h3>
+
+            <button onClick={handleClearImages} >limpiar imágenes</button>
             
             <div className="card">
 
@@ -47,18 +55,20 @@ export const Gifgrid = ({category,number}) => {
 
                  images.map(imag =>(
 
-                    < GifItem key={imag.id } {...imag} />
+                    < GifItem key={imag.id } {...imag}  />
                  ) 
                     
                     )
+                    
             }
 
-            
             </div>
-
-           
               
                 </>
-
   )
 }
+
+Gifgrid.propTypes = {
+   category:PropTypes.string.isRequired,
+   number:PropTypes.string.isRequired
+   }

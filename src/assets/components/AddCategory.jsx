@@ -1,9 +1,9 @@
 import { useState } from "react";
-
+import PropTypes from 'prop-types';
 
 export const AddCategory = ({onNewNumber,onCategorySubmita}) => {
 
-    const [value, setValue] = useState('one punch')
+    const [value, setValue] = useState('')
     const [number, setNumber] = useState(3)
 
     
@@ -20,8 +20,10 @@ export const AddCategory = ({onNewNumber,onCategorySubmita}) => {
         }
 
         const onSubmit= ( event) =>{
+         
+          
          event.preventDefault()
-         if(value.trim().length<3  ) return
+         if(value.trim().length<3 || number <1 ) return
          
             // onNewCategory(categories => [value,...categories])
             
@@ -37,7 +39,7 @@ export const AddCategory = ({onNewNumber,onCategorySubmita}) => {
         
         {/* input */}
 
-        <form onSubmit={onSubmit} >
+        <form onSubmit={onSubmit} aria-label="formu" >
 
         <button id='addcategory'type="submit" >
           <span>agregar +</span> 
@@ -62,4 +64,9 @@ export const AddCategory = ({onNewNumber,onCategorySubmita}) => {
         </form>
     </>
   )
+}
+
+AddCategory.propTypes = {
+  onNewNumber:PropTypes.func.isRequired,
+  onCategorySubmita:PropTypes.func.isRequired,
 }

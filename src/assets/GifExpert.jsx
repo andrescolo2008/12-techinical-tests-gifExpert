@@ -10,7 +10,7 @@ import { number } from 'prop-types'
 export const GifExpert = () => {
   
 const [categories, setCategories] = useState(['one punch man',])
-const [number, setNumber] = useState(0)
+const [number, setNumber] = useState(1)
 
 const onAddCategory= ( newCategory) =>{
         
@@ -26,6 +26,7 @@ const onCategorySubmit = (newCategory) => {
 }
 
 const onNewNumber = (newNumber) =>{
+  if(number <1) return;
 setNumber(newNumber)
 
 
@@ -39,6 +40,9 @@ return (
 
 
       <AddCategory  onCategorySubmita={onCategorySubmit} onNewNumber={onNewNumber}  />
+    
+      
+      
 
         {/* listado de  gifs */}
           
@@ -48,10 +52,9 @@ return (
           
           }
 
-
       </>
-
 
   )
 
 }
+

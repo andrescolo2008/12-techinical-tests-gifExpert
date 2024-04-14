@@ -4,7 +4,7 @@ exports[`pruebas en < GifItem> validar las props 1`] = `
 <div>
   <div>
     <img
-      alt="title"
+      alt="manzana"
       src="https:123.com"
     />
     <p>
